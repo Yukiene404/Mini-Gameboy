@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1160" viewBox="0 0 1400 1160" role="img" aria-labelledby="title desc">
+  <title id="title">KEYCHAIN BOY ESP32 to parallel ILI9341 TFT circuit diagram</title>
+  <desc id="desc">Wiring diagram for an ESP32 Dev Module, a 2.4 inch 8-bit parallel ILI9341 TFT, and three buttons.</desc>
+  <style>
+    .bg { fill: #f8fafc; }
+    .title { font: 700 30px Arial, sans-serif; fill: #0f172a; }
+    .sub { font: 16px Arial, sans-serif; fill: #475569; }
+    .box { fill: #ffffff; stroke: #0f172a; stroke-width: 3; rx: 16; }
+    .tft { fill: #f0fdf4; stroke: #166534; stroke-width: 3; rx: 16; }
+    .pin { font: 600 15px Arial, sans-serif; fill: #0f172a; }
+    .small { font: 14px Arial, sans-serif; fill: #334155; }
+    .heading { font: 700 19px Arial, sans-serif; fill: #0f172a; }
+    .wire { fill: none; stroke: #2563eb; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .power { fill: none; stroke: #dc2626; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .ground { fill: none; stroke: #111827; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .optional { fill: none; stroke: #9333ea; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 8 6; }
+    .node { fill: #fff; stroke: #2563eb; stroke-width: 2; }
+    .note { fill: #fffbeb; stroke: #d97706; stroke-width: 2; rx: 10; }
+    .button { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 2.5; rx: 10; }
+  </style>
+
+  <rect class="bg" width="1400" height="1160"/>
+  <text x="70" y="55" class="title">KEYCHAIN BOY — ESP32 Parallel TFT Circuit Diagram</text>
+  <text x="70" y="83" class="sub">Classic ESP32 Dev Module • 2.4-inch 240 × 320 ILI9341 (8-bit 8080 parallel) • 3 buttons</text>
+
+  <!-- ESP32 -->
+  <rect x="70" y="135" width="365" height="655" class="box"/>
+  <text x="252" y="177" text-anchor="middle" class="heading">ESP32 DEV MODULE</text>
+  <text x="252" y="202" text-anchor="middle" class="small">3.3 V logic</text>
+  <line x1="92" y1="220" x2="413" y2="220" stroke="#cbd5e1" stroke-width="2"/>
+
+  <text x="98" y="250" class="pin">3V3</text><circle cx="425" cy="245" r="6" fill="#dc2626"/>
+  <text x="98" y="280" class="pin">GND</text><circle cx="425" cy="275" r="6" fill="#111827"/>
+  <text x="98" y="322" class="pin">GPIO 17</text><text x="250" y="322" class="small">TFT reset</text><circle cx="425" cy="317" r="6" class="node"/>
+  <text x="98" y="357" class="pin">GPIO 32</text><text x="250" y="357" class="small">TFT chip select</text><circle cx="425" cy="352" r="6" class="node"/>
+  <text x="98" y="392" class="pin">GPIO 33</text><text x="250" y="392" class="small">TFT RS / DC</text><circle cx="425" cy="387" r="6" class="node"/>
+  <text x="98" y="427" class="pin">GPIO 21</text><text x="250" y="427" class="small">TFT write strobe</text><circle cx="425" cy="422" r="6" class="node"/>
+  <text x="98" y="470" class="pin">GPIO 23</text><text x="250" y="470" class="small">Data bit 0</text><circle cx="425" cy="465" r="6" class="node"/>
+  <text x="98" y="500" class="pin">GPIO 22</text><text x="250" y="500" class="small">Data bit 1</text><circle cx="425" cy="495" r="6" class="node"/>
+  <text x="98" y="530" class="pin">GPIO 25</text><text x="250" y="530" class="small">Data bit 2</text><circle cx="425" cy="525" r="6" class="node"/>
+  <text x="98" y="560" class="pin">GPIO 26</text><text x="250" y="560" class="small">Data bit 3</text><circle cx="425" cy="555" r="6" class="node"/>
+  <text x="98" y="590" class="pin">GPIO 27</text><text x="250" y="590" class="small">Data bit 4</text><circle cx="425" cy="585" r="6" class="node"/>
+  <text x="98" y="620" class="pin">GPIO 14</text><text x="250" y="620" class="small">Data bit 5</text><circle cx="425" cy="615" r="6" class="node"/>
+  <text x="98" y="650" class="pin">GPIO 18</text><text x="250" y="650" class="small">Data bit 6</text><circle cx="425" cy="645" r="6" class="node"/>
+  <text x="98" y="680" class="pin">GPIO 19</text><text x="250" y="680" class="small">Data bit 7</text><circle cx="425" cy="675" r="6" class="node"/>
+  <text x="98" y="730" class="pin">GPIO 16</text><text x="250" y="730" class="small">Optional backlight</text><circle cx="425" cy="725" r="6" fill="#fff" stroke="#9333ea" stroke-width="2"/>
+  <text x="98" y="770" class="small">Set to INPUT_PULLUP for buttons</text>
+
+  <!-- TFT -->
+  <rect x="900" y="135" width="390" height="655" class="tft"/>
+  <text x="1095" y="177" text-anchor="middle" class="heading">2.4-INCH ILI9341 TFT</text>
+  <text x="1095" y="202" text-anchor="middle" class="small">8-bit 8080-style parallel interface</text>
+  <line x1="922" y1="220" x2="1268" y2="220" stroke="#bbf7d0" stroke-width="2"/>
+  <circle cx="910" cy="245" r="6" fill="#dc2626"/><text x="928" y="250" class="pin">VCC / 3V3</text>
+  <circle cx="910" cy="275" r="6" fill="#111827"/><text x="928" y="280" class="pin">GND</text>
+  <circle cx="910" cy="317" r="6" class="node"/><text x="928" y="322" class="pin">RST</text>
+  <circle cx="910" cy="352" r="6" class="node"/><text x="928" y="357" class="pin">CS</text>
+  <circle cx="910" cy="387" r="6" class="node"/><text x="928" y="392" class="pin">RS / DC</text>
+  <circle cx="910" cy="422" r="6" class="node"/><text x="928" y="427" class="pin">WR</text>
+  <circle cx="910" cy="452" r="6" fill="#dc2626"/><text x="928" y="457" class="pin">RD — tie directly to 3V3</text>
+  <circle cx="910" cy="465" r="6" class="node"/><text x="1000" y="470" class="pin">D0</text>
+  <circle cx="910" cy="495" r="6" class="node"/><text x="1000" y="500" class="pin">D1</text>
+  <circle cx="910" cy="525" r="6" class="node"/><text x="1000" y="530" class="pin">D2</text>
+  <circle cx="910" cy="555" r="6" class="node"/><text x="1000" y="560" class="pin">D3</text>
+  <circle cx="910" cy="585" r="6" class="node"/><text x="1000" y="590" class="pin">D4</text>
+  <circle cx="910" cy="615" r="6" class="node"/><text x="1000" y="620" class="pin">D5</text>
+  <circle cx="910" cy="645" r="6" class="node"/><text x="1000" y="650" class="pin">D6</text>
+  <circle cx="910" cy="675" r="6" class="node"/><text x="1000" y="680" class="pin">D7</text>
+  <circle cx="910" cy="725" r="6" fill="#fff" stroke="#9333ea" stroke-width="2"/><text x="928" y="730" class="pin">LED / BL (optional)</text>
+  <text x="928" y="770" class="small">SD pins: leave unconnected</text>
+
+  <!-- display bus -->
+  <path d="M431 317 H904" class="wire"/>
+  <path d="M431 352 H904" class="wire"/>
+  <path d="M431 387 H904" class="wire"/>
+  <path d="M431 422 H904" class="wire"/>
+  <path d="M431 465 H904" class="wire"/>
+  <path d="M431 495 H904" class="wire"/>
+  <path d="M431 525 H904" class="wire"/>
+  <path d="M431 555 H904" class="wire"/>
+  <path d="M431 585 H904" class="wire"/>
+  <path d="M431 615 H904" class="wire"/>
+  <path d="M431 645 H904" class="wire"/>
+  <path d="M431 675 H904" class="wire"/>
+  <path d="M431 725 H700 V725 H904" class="optional"/>
+
+  <!-- power and ground -->
+  <path d="M431 245 H700 V245 H904" class="power"/>
+  <path d="M910 452 V245" class="power"/>
+  <path d="M431 275 H700 V275 H904" class="ground"/>
+  <text x="505" y="235" class="small" fill="#b91c1c">3.3 V supply</text>
+
+  <!-- buttons section -->
+  <text x="70" y="855" class="heading">BUTTONS — wire each switch between its GPIO and GND</text>
+  <text x="70" y="880" class="sub">The sketch uses internal pull-ups; pressing a button pulls the GPIO LOW.</text>
+
+  <rect x="105" y="935" width="245" height="100" class="button"/>
+  <text x="228" y="970" text-anchor="middle" class="heading">LEFT</text>
+  <text x="228" y="1000" text-anchor="middle" class="small">GPIO 4 ── switch ── GND</text>
+  <rect x="445" y="935" width="245" height="100" class="button"/>
+  <text x="568" y="970" text-anchor="middle" class="heading">START / A</text>
+  <text x="568" y="1000" text-anchor="middle" class="small">GPIO 5 ── switch ── GND</text>
+  <rect x="785" y="935" width="245" height="100" class="button"/>
+  <text x="908" y="970" text-anchor="middle" class="heading">RIGHT</text>
+  <text x="908" y="1000" text-anchor="middle" class="small">GPIO 13 ── switch ── GND</text>
+
+  <path d="M145 1080 H1030" class="ground"/>
+  <path d="M228 1035 V1080 M568 1035 V1080 M908 1035 V1080" class="ground"/>
+  <path d="M145 1070 l-16 22 h32 z" fill="#111827"/>
+  <text x="175" y="1115" class="small">Common GND rail</text>
+
+  <rect x="1070" y="895" width="250" height="150" class="note"/>
+  <text x="1090" y="925" class="heading">Important</text>
+  <text x="1090" y="952" class="small">• Do not connect TFT inputs to 5 V.</text>
+  <text x="1090" y="978" class="small">• RD stays tied to 3V3.</text>
+  <text x="1090" y="1004" class="small">• LED / BL is optional on GPIO 16.</text>
+  <text x="1090" y="1030" class="small">• Leave SD pins unconnected.</text>
+
+  <text x="70" y="1140" class="sub">GPIO map: RST 17 • CS 32 • RS/DC 33 • WR 21 • D0–D7 = 23, 22, 25, 26, 27, 14, 18, 19</text>
+</svg>
